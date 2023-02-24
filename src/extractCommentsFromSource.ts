@@ -2,6 +2,13 @@ import { parse } from "@babel/parser"
 
 interface CommentNode {
   value: string
+  loc?: { start: Location; end: Location }
+}
+
+interface Location {
+  line: number
+  column: number
+  index: number
 }
 
 export const extractCommentsFromSource = async (sourceText: string): Promise<CommentNode[]> => {
@@ -15,6 +22,12 @@ export const extractCommentsFromSource = async (sourceText: string): Promise<Com
   }
 
   return ast.comments.reduce((acc, comment) => {
-    return [...acc, { value: comment.value }]
+    return [
+      ...acc,
+      {
+        value: comment.value,
+        loc: { start: { ...comment.loc!.start }, end: { ...comment.loc!.end } },
+      } as CommentNode,
+    ]
   }, [] as CommentNode[])
 }

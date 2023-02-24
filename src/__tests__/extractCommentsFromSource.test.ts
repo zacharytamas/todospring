@@ -12,6 +12,9 @@ test("basic single line comments", async () => {
   `
 
   expect(await extractCommentsFromSource(exampleCode)).toEqual([
-    { value: " TODO This needs some work" },
+    {
+      value: " TODO This needs some work",
+      loc: { start: { column: 2, line: 4, index: 50 }, end: { column: 30, line: 4, index: 78 } },
+    },
   ])
 })

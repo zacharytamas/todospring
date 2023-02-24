@@ -31,6 +31,7 @@
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.21.0",
     "@jest/globals": "^29.4.3",
+    "@types/common-tags": "^1.8.1",
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
@@ -41,5 +42,9 @@
     "prettier": "^2.8.4",
     "ts-jest": "^29.0.5",
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.21.2",
+    "common-tags": "^1.8.2"
   }
 }

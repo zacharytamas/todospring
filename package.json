@@ -21,16 +21,25 @@
   "scripts": {
     "format": "prettier --loglevel warn --write \"**/*.{js,css,md}\"",
     "posttest": "yarn run format",
-    "pretest": "yarn run lint && tsc --noEmit",
-    "lint": "eslint . --cache --fix --ext .ts,.tsx"
+    "lint": "eslint . --cache --fix --ext .ts,.tsx",
+    "hypergit": "chokidar \"src/**/*.ts\" -c \"git add {path}; git commit -m \\\"{event} {path}\\\"\"",
+    "test": "jest"
   },
   "keywords": [],
   "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-typescript": "^7.21.0",
+    "@jest/globals": "^29.4.3",
+    "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
+    "babel-jest": "^29.4.3",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
+    "jest": "^29.4.3",
     "prettier": "^2.8.4",
+    "ts-jest": "^29.0.5",
     "typescript": "^4.9.5"
   }
 }
